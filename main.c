@@ -6,7 +6,7 @@
  * 10000 times. */
 void* test_init_and_exit(void * arg)
 {
-	for (int i = 0; i < 100; ++i) {
+	for (int i = 0; i < 1000; ++i) {
 		libusb_context *ctx = NULL;
 		int r;
 
@@ -17,7 +17,7 @@ void* test_init_and_exit(void * arg)
 		}
 		libusb_exit(ctx);
 	}
-
+    printf("Thread done\n");
 	return NULL;
 }
 
@@ -33,7 +33,7 @@ int main() {
     int err2 = pthread_create(&threadId2, NULL, &test_init_and_exit, NULL);
     err2 = pthread_join(threadId2, NULL);
 
-    printf("Done\n");
+    printf("All Done\n");
 
     return 0;
 }
