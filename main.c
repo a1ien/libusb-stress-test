@@ -28,13 +28,13 @@ int main() {
     pthread_t threadId1;
     // Create a thread that will function threadFunc()
     int err = pthread_create(&threadId1, NULL, &test_init_and_exit, NULL);
-    err = pthread_join(threadId1, NULL);
+
     
     pthread_t threadId2;
     // Create a thread that will function threadFunc()
     int err2 = pthread_create(&threadId2, NULL, &test_init_and_exit, NULL);
     err2 = pthread_join(threadId2, NULL);
-
+    err = pthread_join(threadId1, NULL);
     printf("All Done\n");
 
     return 0;
