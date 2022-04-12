@@ -21,5 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run
-        run: cargo run --release
+      # - name: Run
+      #   run: cargo run --release
+
+      - name: Run C
+        run: $(brew --prefix llvm)/bin/clang main.c `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags` -o main && ./main
