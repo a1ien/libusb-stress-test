@@ -33,5 +33,7 @@ int main() {
     int err2 = pthread_create(&threadId2, NULL, &test_init_and_exit, NULL);
     err2 = pthread_join(threadId2, NULL);
 
+    printf("Done\n");
+
     return 0;
 }
